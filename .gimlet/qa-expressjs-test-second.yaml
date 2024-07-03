@@ -11,7 +11,7 @@ values:
   gitSha: '{{ .SHA }}'
   image:
     repository: regisztri.k3z.eu:32356/expressjs-test-second
-    tag: '{{ .SHA }}'
+    tag: v1
   imagePullSecrets: []
   replicas: 1
   resources:
