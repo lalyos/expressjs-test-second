@@ -1,0 +1,24 @@
+app: szombat
+env: stage
+namespace: default
+chart:
+  name: https://github.com/gimlet-io/onechart.git?branch=simplified-schema&path=/charts/onechart/
+values:
+  gitRepository: lalyos/expressjs-test-second
+  gitSha: '{{ .SHA }}'
+  image:
+    dockerfile: ""
+    registry: ""
+    repository: lalyos/12factor
+    strategy: static
+    tag: readiness
+  imagePullSecrets:
+    - '{{ .APP }}--pullsecret'
+  ingress:
+    host: szombat.k3z.eu
+    tlsEnabled: true
+  resources:
+    ignoreLimits: true
+  vars:
+    COLOR2: hotpink
+    TITLE: Gimlet deployment  [stage]
