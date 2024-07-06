@@ -5,3 +5,4 @@ chart:
   name: https://github.com/lalyos/chart-workshop.git?branch=master&path=/
 values:
   users: 2
+  dns: k3z.eu
