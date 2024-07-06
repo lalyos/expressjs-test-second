@@ -1,0 +1,8 @@
+app: workshop
+env: ethical-shape
+namespace: default
+chart:
+  name: https://github.com/lalyos/chart-workshop.git?branch=gimlet&path=/
+values:
+  users: 2
+  dns: zcmexnvf.gimlet.app
