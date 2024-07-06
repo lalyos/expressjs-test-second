@@ -1,0 +1,28 @@
+app: ebed
+env: ethical-shape
+namespace: default
+chart:
+  name: https://github.com/gimlet-io/onechart.git?branch=simplified-schema&path=/charts/onechart/
+values:
+  gitRepository: lalyos/expressjs-test-second
+  gitSha: '{{ .SHA }}'
+  image:
+    dockerfile: ""
+    registry: ""
+    repository: lalyos/12factor
+    strategy: static
+    tag: readiness
+  imagePullSecrets:
+    - '{{ .APP }}--pullsecret'
+  ingress:
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      kubernetes.io/ingress.class: nginx
+    host: lunch-zcmexnvf.gimlet.app
+    tlsEnabled: true
+  resources:
+    ignoreLimits: true
+  vars:
+    BODY: Koszi mindent megyek ebedelni, jo nyaralast!
+    COLOR2: cyan
+    TITLE: Lunchtime for lalyos v3
