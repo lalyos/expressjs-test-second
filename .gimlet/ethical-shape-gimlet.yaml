@@ -1,0 +1,28 @@
+app: gimlet
+env: ethical-shape
+namespace: default
+chart:
+  name: https://github.com/gimlet-io/onechart.git?branch=simplified-schema&path=/charts/onechart/
+values:
+  gitRepository: lalyos/expressjs-test-second
+  gitSha: '{{ .SHA }}'
+  image:
+    dockerfile: ""
+    registry: ""
+    repository: lalyos/12factor
+    strategy: static
+    tag: readiness
+  imagePullSecrets:
+    - '{{ .APP }}--pullsecret'
+  ingress:
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      kubernetes.io/ingress.class: nginx
+    host: gimlet-zcmexnvf.gimlet.app
+    tlsEnabled: true
+  resources:
+    ignoreLimits: true
+  vars:
+    BODY: <iframe src=\"https://giphy.com/embed/MAsZU7Sox3VXiUuE5d\" width=\"480\" height=\"330\" frameBorder=\"0\" class=\"giphy-embed\" allowFullScreen></iframe><p><a href=\"https://giphy.com/gifs/kendricklamar-kendrick-lamar-not-like-us-MAsZU7Sox3VXiUuE5d\">via GIPHY</a></p>
+    COLOR2: orange
+    TITLE: Gimlet Beta rulez v1.1
