@@ -1,6 +1,9 @@
 app: szombat
 env: stage
 namespace: default
+deploy:
+  branch: main
+  event: push
 chart:
   name: https://github.com/gimlet-io/onechart.git?branch=simplified-schema&path=/charts/onechart/
 values:
@@ -21,4 +24,9 @@ values:
     ignoreLimits: true
   vars:
     COLOR2: hotpink
-    TITLE: Gimlet deployment  [stage]
+    TITLE: 'Gimlet deployment  [env: ???]'
+    BODY: |
+      
+      {{ range $k,$v :=  . }} <p>{{ printf "%s = %s" $k $v }} {{ end }}
+      <hr>
+      triggered by: <a href='https://github.com/{{ .REPO }}/commit/{{ .SHA }}'>https://github.com/{{ .REPO }}/commit/{{ .SHA }} </a>
