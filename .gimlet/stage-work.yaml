@@ -19,6 +19,8 @@ manifests: |
 chart:
   name: https://github.com/gimlet-io/onechart.git?branch=simplified-schema&path=/charts/onechart/
 values:
+  gitRepository: lalyos/expressjs-test-second
+  gitSha: '{{ .SHA }}'
   image:
     repository: lalyos/k8s-workshop
     tag: v1.2
