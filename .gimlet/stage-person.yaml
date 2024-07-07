@@ -1,0 +1,7 @@
+app: person
+env: stage
+namespace: default
+chart:
+  name: https://github.com/lalyos/chart-cm.git?branch=gimlet&path=/
+values:
+  name: lalyos
